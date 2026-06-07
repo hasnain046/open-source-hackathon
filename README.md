@@ -1,160 +1,326 @@
-# InflationIQ – AI Economic Intelligence Platform
+# 🚀 InflationIQ
+### AI-Powered Inflation Forecasting & Economic Intelligence Platform
 
-InflationIQ is an enterprise-grade macroeconomic intelligence console designed to forecast Headline CPI inflation, model multi-variable price shocks, track live global news sentiment indicators, analyze currency pass-through shocks, and query institutional economic publications using a Retrieval-Augmented Generation (RAG) agent.
-
----
-
-## 🚀 Key Features
-
-* **ML Inflation Forecast Engine**: Predicts Headline CPI rate up to 12 months ahead using an ensemble of Prophet (additive seasonality/trends) and XGBoost (exogenous shock pass-through) models.
-* **AI Economist Copilot**: A grounded conversational agent that analyzes forecasts, SHAP contributions, news signals, and exchange rate indices. Includes a rule-based NLG template engine fallback.
-* **RAG Knowledge Base**: Indexes and retrieves passages from primary sources (RBI, IMF, World Bank, research publications) using dense (ChromaDB HNSW) and sparse (BM25) hybrid search, cross-encoder reranking, and freshness weighting.
-* **Scenario Shock Simulator**: Simulates pass-through effects of oil price swings, currency changes, and policy interest rate adjustments.
-* **Alerts Automation**: Multi-channel (Email, Telegram, WhatsApp) trigger engine with configurable rule cooldowns, timezone-aware quiet hours suppression, and daily limits.
-* **SHAP Explainability Dashboard**: Decomposes model projections to quantify local contribution factors (waterfall explainers) of historical and projected timelines.
-* **News Intelligence & Deduplication**: Analyzes financial feed sentiments and topic pressures (FinBERT + spaCy NER) with Jaccard-based MinHash LSH deduplication.
-* **Currency Shocks & sequential LSTM**: Sequentially forecasts USD/INR exchange trends using PyTorch LSTMs and maps commodity shocks.
+<p align="center">
+  <img src="https://img.shields.io/badge/React-Frontend-blue" />
+  <img src="https://img.shields.io/badge/FastAPI-Backend-green" />
+  <img src="https://img.shields.io/badge/PostgreSQL-Database-blue" />
+  <img src="https://img.shields.io/badge/AI%2FML-XGBoost%20%7C%20Prophet-orange" />
+  <img src="https://img.shields.io/badge/Open%20Source-Hackathon%202026-red" />
+</p>
 
 ---
 
-## 🏗️ System Architecture
+## 🌟 Overview
 
+InflationIQ is a full-stack AI-powered economic intelligence platform designed to forecast inflation trends, analyze CPI movements, monitor economic news, evaluate currency impacts, and provide explainable AI insights through an intelligent economist copilot.
+
+The platform combines machine learning forecasting, news intelligence, currency prediction, SHAP explainability, Retrieval-Augmented Generation (RAG), and smart alerting into a single modern dashboard.
+
+---
+
+## 🔗 Live Links
+
+### Frontend Demo
+[Live Demo](https://frontend-xi-nine-36.vercel.app)
+
+### Backend API
+[API Documentation](https://railway.com/project/17ab8129-e480-4db7-9f04-c3d513937f9d)
+
+### GitHub Repository
+https://github.com/hasnain046/open-source-hackathon
+
+---
+
+# ✨ Features
+
+## 📈 Inflation Forecast Engine
+
+- Prophet Forecasting
+- XGBoost Forecasting
+- Ensemble Predictions
+- Multi-Horizon Forecasts
+- Automated Retraining
+- Forecast Drift Monitoring
+
+---
+
+## 📰 News Intelligence
+
+- NewsAPI Integration
+- GDELT Integration
+- Reddit Economic Analysis
+- Google Trends Signals
+- FinBERT Sentiment Analysis
+- Inflation Pressure Detection
+
+---
+
+## 💱 Currency Prediction Engine
+
+- LSTM Currency Forecasting
+- Brent Crude Prediction
+- DXY Index Analysis
+- VIX Risk Assessment
+- Currency Impact Scoring
+
+---
+
+## 🧠 SHAP Explainability Dashboard
+
+- Global Feature Importance
+- Local Prediction Explanations
+- Driver Contribution Analysis
+- Forecast Comparison
+- Confidence Indicators
+
+---
+
+## 🤖 AI Economist Copilot
+
+- Multi-Turn Conversations
+- Economic Reasoning
+- Executive Mode
+- Analyst Mode
+- Economist Mode
+- Context-Aware Responses
+
+---
+
+## 📚 RAG Knowledge Base
+
+- PDF Processing
+- OCR Support
+- Hybrid Retrieval
+- BM25 Search
+- Vector Search
+- Citation-Based Responses
+
+---
+
+## 🚨 Smart Alerts System
+
+- Inflation Threshold Alerts
+- Currency Shock Alerts
+- News Risk Alerts
+- Model Drift Alerts
+- Telegram Notifications
+- Email Notifications
+- Digest Mode
+
+---
+
+# 🏗️ System Architecture
+
+```text
+Frontend (React + Vite)
+        │
+        ▼
+FastAPI Backend
+        │
+ ┌──────┼─────────────┐
+ ▼      ▼             ▼
+
+Forecast  News      Currency
+Engine    Engine    Engine
+
+ ▼         ▼          ▼
+
+ SHAP Explainability
+          │
+          ▼
+
+ AI Economist Copilot
+          │
+          ▼
+
+ RAG Knowledge Base
+          │
+          ▼
+
+ Alerts Automation
 ```
-                                  +-------------------+
-                                  |    Web Browser    |
-                                  |  (React Console)  |
-                                  +---------+---------+
-                                            |
-                                            | (HTTPS / WSS)
-                                            v
-                                  +---------+---------+
-                                  |    Nginx Proxy    |
-                                  +---------+---------+
-                                            |
-                         +------------------+------------------+
-                         |                                     |
-                         v                                     v
-               +---------+---------+                 +---------+---------+
-               |  FastAPI Backend  |                 |  Static Frontend  |
-               +----+---------+----+                 +-------------------+
-                    |         |
-         +----------+         +----------+
-         |                               |
-         v                               v
-+--------+--------+             +--------+--------+
-| PostgreSQL DB   |             |   Redis Cache   |
-+-----------------+             +--------+--------+
-                                         |
-                                         v
-                                +--------+--------+
-                                | Celery Workers  |
-                                +-----------------+
-```
+
+# 🛠️ Tech Stack
+
+## Frontend
+
+- React
+- Vite
+- Redux Toolkit
+- Axios
+- Tailwind CSS
+- React Router
+
+## Backend
+
+- FastAPI
+- SQLAlchemy
+- PostgreSQL
+- Redis
+- Celery
+
+## AI / Machine Learning
+
+- XGBoost
+- Prophet
+- SHAP
+- FinBERT
+- spaCy
+- PyTorch (LSTM)
+
+## RAG Stack
+
+- ChromaDB
+- Sentence Transformers
+- Cross Encoder Reranker
+
+## DevOps
+
+- Docker
+- Docker Compose
+- Nginx
 
 ---
 
-## 🛠️ Technology Stack
+# 📸 Screenshots
 
-### Frontend Console
-* **Core**: React 18, Vite, Javascript
-* **State Management**: Redux Toolkit (auth, dashboard, forecasts, copilot, alerts slices)
-* **HTTP Client**: Axios (with custom bearer interceptors and token-refresh mechanics)
-* **Optimization**: Route-based code splitting utilizing `React.lazy` and Suspense boundaries
+## Dashboard
 
-### Backend Services
-* **Framework**: FastAPI (Python 3.11)
-* **Task Queue**: Celery (using Redis as message broker & result backend)
-* **Vector DB**: ChromaDB (locally persisted collection)
-* **ORM & Database**: SQLAlchemy & Alembic (PostgreSQL / SQLite fallbacks)
-* **ML Libraries**: sentence-transformers, PyTorch, XGBoost, Prophet, scikit-learn, rank_bm25
+*(Screenshots will be added upon console deployment reviews)*
 
----
+## Forecasting
 
-## ⚙️ Environment Variables (`backend/.env`)
+*(Screenshots will be added upon console deployment reviews)*
 
-Configure the following parameters to connect services:
+## Copilot
 
-```ini
-# Server Config
-PROJECT_NAME="InflationIQ"
-DEBUG=true
-PORT=8000
+*(Screenshots will be added upon console deployment reviews)*
 
-# Security (JWT)
-JWT_SECRET_KEY="your-secure-hexadecimal-cryptographic-key"
-JWT_ALGORITHM="HS256"
+## Alerts
 
-# Database Connections
-DATABASE_URL="postgresql://postgres:password@localhost:5432/inflation_iq"
-REDIS_URL="redis://localhost:6379/0"
-
-# Third-Party API Integrations
-GEMINI_API_KEY="AIzaSy..."
-FRED_API_KEY="your_fred_api_token"
-NEWS_API_KEY="your_news_api_token"
-```
+*(Screenshots will be added upon console deployment reviews)*
 
 ---
 
-## 📦 Local Installation & Setup
+# ⚙️ Installation
 
-### 1. Prerequisite Infrastructure
-Ensure Docker, PostgreSQL, and Redis are running locally.
+## Clone Repository
 
-### 2. Backend Installation
 ```bash
-cd backend
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
-cp .env.template .env     # Update credentials in .env
-uvicorn app.main:app --reload
+git clone https://github.com/hasnain046/open-source-hackathon.git
+cd open-source-hackathon
 ```
 
-### 3. Frontend Installation
+## Frontend Setup
+
 ```bash
 cd frontend
+
 npm install
+
 npm run dev
 ```
 
-### 4. Background Workers (Tasks & Alerts)
+Frontend:
+
+```text
+http://localhost:5173
+```
+
+## Backend Setup
+
 ```bash
 cd backend
-celery -A app.jobs.worker.celery worker --loglevel=info
-celery -A app.jobs.worker.celery beat --loglevel=info
+
+pip install -r requirements.txt
 ```
 
----
+Create environment:
 
-## 🐳 Production Deployment (Docker Compose)
+```env
+DATABASE_URL=
+JWT_SECRET=
+REDIS_URL=
+GEMINI_API_KEY=
+NEWS_API_KEY=
+```
 
-Deploy the multi-container configuration in a single command:
+Run Backend:
 
 ```bash
-docker compose up --build -d
+uvicorn app.main:app --reload
 ```
 
-Nginx will bind to `80/443`, route requests under `/api/v1` to the FastAPI backend container, and serve static React builds for web users.
+Backend:
+
+```text
+http://localhost:8000
+```
+
+API Docs:
+
+```text
+http://localhost:8000/docs
+```
 
 ---
 
-## 📋 API Overview Reference
+# 📊 Major Modules
 
-| Prefix | Category | Description |
-|---|---|---|
-| `/auth` | Authentication | Registration, Login, Token generation, and Rotation |
-| `/dashboard` | System Console | Headline CPI statistics and core live metrics |
-| `/forecasting` | Predictions | Autoregressive model projections and SHAP Explainers |
-| `/cpi` | Category Analytics | Subcategory weights and timelines |
-| `/trends` | Historical | Longitudinal database tables searches |
-| `/currency` | Forex & Commodity | Exchange rates LSTM forecasts and crude shock scores |
-| `/copilot` | AI Assistant | Chat memory, grounding engines, and citations |
-| `/alerts` | Alarms Trigger | Rules CRUD, cooldowns, and Telegram/WhatsApp connect |
-| `/rag` | Knowledge Base | Document uploads crawling and vector searches |
+- Authentication & Authorization
+- Dashboard Analytics
+- Inflation Forecasting
+- CPI Analytics
+- Historical Trends
+- Currency Impact Analysis
+- AI Economist Copilot
+- RAG Knowledge Base
+- SHAP Explainability
+- Smart Alerts
+- Scenario Simulator
 
 ---
 
-## 🛡️ License
+# 📈 Performance Optimizations
 
-This project is licensed under the MIT License.
+- Route-Based Code Splitting
+- React Lazy Loading
+- Suspense Boundaries
+- Redux State Caching
+- Database-First Forecast Retrieval
+- ChromaDB Vector Indexing
+
+---
+
+# 🤝 Team
+
+### Team Name
+
+Tech_Maker
+
+### Developer
+
+Hasnain Khatik
+
+GitHub:
+https://github.com/hasnain046
+
+LinkedIn:
+https://www.linkedin.com/in/hasnain-khatik-38bba5290
+
+---
+
+# ⭐ Support
+
+If you like this project:
+
+- Star the repository
+- Fork the project
+- Share feedback
+
+---
+
+# 🎯 Open Source Hackathon 2026 Submission
+
+Built during Open Source Hackathon 2026 as an AI-powered economic intelligence and inflation forecasting platform.
