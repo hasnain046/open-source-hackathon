@@ -1,0 +1,11 @@
+{
+    "active_version": "ensemble_v1.0.0",
+    "last_training_date": "2026-06-07 10:46:35",
+    "metrics": {
+        "mae": 0.008,
+        "rmse": 0.0097,
+        "mape": 0.2,
+        "r2": 0.998
+    },
+    "status": "Healthy"
+}
